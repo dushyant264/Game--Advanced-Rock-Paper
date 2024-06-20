@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPS Game</title>
+    <style>
+      /* Style for the chat messages */
+      #chatMessages {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+      }
+      /* Style for chat message */
+      .chatMessage {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        animation: fadeOut 5s forwards;
+      }
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <div
+      style="
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        display: flex;
+        align-items: center;
+      "
+    >
+      <span id="rocksValue"> rock </span>
+      <input type="range" id="rocks" min="0" max="15" value="0" />
+      <span id="papersValue"> paper </span>
+      <input type="range" id="papers" min="0" max="15" value="0" />
+      <span id="scissorsValue"> scissors </span>
+      <input type="range" id="scissors" min="0" max="15" value="0" />
+      <button id="submitPlayers">Submit</button>
+    </div>
+
+    <div
+      id="messageContainer"
+      style="position: fixed; bottom: 20px; left: 200px"
+    ></div>
+    <div>
+      <form
+        id="inputForm"
+        style="
+          position: fixed;
+          bottom: 20px;
+          right: 200px;
+          display: flex;
+          align-items: center;
+        "
+      >
+        <input
+          type="text"
+          class="input-box"
+          id="input1"
+          placeholder="write player name(who)"
+          maxlength="2"
+        />
+        <input
+          type="text"
+          class="input-box"
+          id="input2"
+          placeholder="write where to go(Row Col)"
+          maxlength="5"
+        />
+        <button type="submit" id="submitButton">Submit</button>
+      </form>
+    </div>
+
+    <!-- Chat Messages -->
+    <div id="chatMessages"></div>
+
+    <span hidden id="sharedMsg">hi</span>
+
+    <script src="canvas.js"></script>
+    <script src="chatMod.js"></script>
+  </body>
+</html>
